@@ -11,7 +11,14 @@
 	home.packages = with pkgs; [
 		nnn
 		btop
+		gh
 	];
+
+	programs.git = {
+		enable = true;
+		userName = "Kent Deterding";
+		userEmail = "kentdeterding@gmail.com";
+	};
 
 	programs.alacritty = {
 		enable = true;
