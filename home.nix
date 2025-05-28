@@ -11,7 +11,6 @@
 	home.packages = with pkgs; [
 		nnn
 		btop
-		gh
 	];
 
 	programs.git = {
@@ -21,6 +20,10 @@
 	};
 
 	programs.alacritty = {
+		enable = true;
+	};
+
+	programs.gh = {
 		enable = true;
 	};
 }
