@@ -11,7 +11,8 @@
 	home.packages = with pkgs; [
 		nnn
 		btop
-		gh
+		tree
+		fish
 	];
 
 	programs.git = {
@@ -22,5 +23,11 @@
 
 	programs.alacritty = {
 		enable = true;
+		# window.opacity = 0.7;
+	};
+	
+	programs.starship = {
+		enable = true;
+		enableFishIntegration = true;
 	};
 }
