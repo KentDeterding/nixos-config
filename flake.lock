@@ -185,6 +185,10 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "nil": [
+          "nvf",
+          "nil"
+        ],
         "nixpkgs": "nixpkgs_2",
         "nvf": "nvf"
       }

@@ -1,18 +1,31 @@
-{ pkgs, lib, ... }:
-
+{ pkgs, nvf, ... }:
 {
-    vim = {
-        options = {
-            tabstop = 4;
-            shiftwidth = 4;
-            softtabstop = 4;
-        };
+	imports = [ nvf.nixosModules.default ];
+
+	programs.nvf.enable = true;
+	programs.nvf.settings.vim = {
+
+		options = {
+		    tabstop = 4;
+		    shiftwidth = 4;
+		    softtabstop = 4;
+		};
 
 		theme = {
-            enable = true;
-            name = "gruvbox";
-            style = "dark";
+		    enable = true;
+		    name = "gruvbox";
+		    style = "dark";
 		};
+
+        # Didn't do what I wanted, but we tried
+        # keymaps = [
+        #     {
+        #         mode = "n";
+        #         key = "<leader><leader>";
+        #         action = ":Telescope find_files";
+        #         silent = true;
+        #     }
+        # ];
 
 		statusline.lualine.enable = true;
 		telescope.enable = true;

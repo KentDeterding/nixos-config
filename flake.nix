@@ -5,26 +5,15 @@
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 		home-manager.url = "github:nix-community/home-manager/release-25.05";
 		nvf.url = "github:notashelf/nvf";
+		nil.follows = "nvf/nil";
 	};
 
-	outputs = { self, nixpkgs, nvf, ... }@inputs: {
-		
-		packages."x86_64-linux".default =
-			(nvf.lib.neovimConfiguration {
-				pkgs = nixpkgs.legacyPackages.x86_64-linux;
-				modules = [ ./nvf-config.nix ];
-			}).neovim;
-		
+	outputs = { self, nixpkgs, nvf, ... } @ inputs: {
 		nixosConfigurations = {
 			kentd = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
+				specialArgs = inputs;
 				modules = [
-					# make wrapped neovim available in system packages
-					# ({ pkgs, ... }: {
-						# environment.systemPackages = [ self.packages.${pkgs.stdenv.system}.neovim ];
-					# })
-					nvf.nixosModules.default
-
 					# import the system configuration
 					./configuration.nix
 
@@ -34,6 +23,9 @@
 						home-manager.useUserPackages = true;
 						home-manager.users.kentd = import ./home.nix;
 					}
+
+                    # add nvf (configured neovim)
+					./nvf-config.nix
 				];
 			};
 		};
