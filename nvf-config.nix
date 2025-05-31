@@ -9,6 +9,8 @@
 		    tabstop = 4;
 		    shiftwidth = 4;
 		    softtabstop = 4;
+            scrolloff = 4;
+            smartindent = true;
 		};
 
 		theme = {
@@ -17,7 +19,7 @@
 		    style = "dark";
 		};
 
-        # Didn't do what I wanted, but we tried
+        # Didn't do what I wanted, but keymaps do work this way
         # keymaps = [
         #     {
         #         mode = "n";
