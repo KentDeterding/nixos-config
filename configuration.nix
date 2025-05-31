@@ -103,6 +103,18 @@
 	# set default editor to vim
 	environment.variables.EDITOR = "vim";
 
+    # Install fonts system wide
+    fonts.packages = with pkgs; [
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.overpass
+        nerd-fonts.shure-tech-mono
+        nerd-fonts.terminess-ttf
+        nerd-fonts.ubuntu-mono
+    ];
+
+    # Option to add all nerdfonts
+    # fonts.packages = with pkgs; [ nerdfonts ];
+
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
 	# programs.mtr.enable = true;

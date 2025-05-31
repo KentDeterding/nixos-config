@@ -1,18 +1,21 @@
-Fixes:
+## Fixes:
 - Github secrets
-- correctly package neovim
 
-Packages to add/configure:
-- Just/Justfile
+## Packages to configure:
+- telescope layout
 - zellij
-- autojump
-- dmenu/anyrun
-- starship
+
+## Packages to add:
+- nixfmt
+- terminal (alactritty/ghostty)
+- shell (fish->nushell)
+- prompt (starship/alt)
+- Just/Justfile
+- yazi/nnn/lf
+- cli dir jump, maybe autojump 
 - i3/sway/hyperland
 - Waybar
-- yazi/nnn/lf
-- fonts
-- nixfmt or alt
+- dmenu/anyrun
 - spotify
 - terminal splash screen
 
