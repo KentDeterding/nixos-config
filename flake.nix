@@ -1,5 +1,5 @@
 {
-	description = "A simple NixOS flake";
+	description = "Kent's NixOS config";
 
 	inputs = {
 		nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -15,17 +15,17 @@
 				specialArgs = inputs;
 				modules = [
 					# import the system configuration
-					./configuration.nix
+					./nixos/configuration.nix
 
 					# setup home manager
 					inputs.home-manager.nixosModules.home-manager {
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.kentd = import ./home.nix;
+						home-manager.users.kentd = import ./home-manager/home.nix;
 					}
 
                     # add nvf (configured neovim)
-					./nvf-config.nix
+					./pgks/nvf-config.nix
 				];
 			};
 		};

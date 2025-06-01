@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+# System configuration file
+# Used to configure the system environment
 
-{
+{ config, pkgs, ... }: {
+
 	imports = [ # Include the results of the hardware scan.
 		./hardware-configuration.nix
 	];
@@ -73,6 +75,12 @@
 	# Enable touchpad support (enabled default in most desktopManager).
 	# services.xserver.libinput.enable = true;
 
+	# Allow unfree packages
+	nixpkgs.config.allowUnfree = true;
+
+	# enables flakes
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 	# Define a user account. Don't forget to set a password with ‘passwd’.
 	users.users.kentd = {
 		isNormalUser = true;
@@ -82,15 +90,6 @@
 			# No pkgs, will use home manager
 		];
 	};
-
-	# Install firefox.
-	programs.firefox.enable = true;
-
-	# Allow unfree packages
-	nixpkgs.config.allowUnfree = true;
-
-	# enables flakes
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
@@ -111,28 +110,6 @@
         nerd-fonts.terminess-ttf
         nerd-fonts.ubuntu-mono
     ];
-
-    # Option to add all nerdfonts
-    # fonts.packages = with pkgs; [ nerdfonts ];
-
-	# Some programs need SUID wrappers, can be configured further or are
-	# started in user sessions.
-	# programs.mtr.enable = true;
-	# programs.gnupg.agent = {
-	#   enable = true;
-	#   enableSSHSupport = true;
-	# };
-
-	# List services that you want to enable:
-
-	# Enable the OpenSSH daemon.
-	# services.openssh.enable = true;
-
-	# Open ports in the firewall.
-	# networking.firewall.allowedTCPPorts = [ ... ];
-	# networking.firewall.allowedUDPPorts = [ ... ];
-	# Or disable the firewall altogether.
-	# networking.firewall.enable = false;
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions

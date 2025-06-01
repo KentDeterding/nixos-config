@@ -1,5 +1,6 @@
 ## Fixes:
 - Github secrets
+- Restructure Config
 
 ## Packages to configure:
 - telescope layout
@@ -12,10 +13,10 @@
 - prompt (starship/alt)
 - Just/Justfile
 - yazi/nnn/lf
-- cli dir jump, maybe autojump 
+- fzf/autojump 
 - i3/sway/hyperland
 - Waybar
-- dmenu/anyrun
+- dmenu/anyrun/rofi-wayland
 - spotify
 - terminal splash screen
 
